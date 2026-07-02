@@ -1,0 +1,57 @@
+{
+    "history": [
+        {
+            "role": "user",
+            "message": "hello",
+            "time": "2026-06-30T20:51:11.727Z"
+        },
+        {
+            "role": "assistant",
+            "message": "Hello! I'm Pendium AI.",
+            "time": "2026-06-30T20:51:11.786Z"
+        },
+        {
+            "role": "user",
+            "message": "my name is Pending",
+            "time": "2026-06-30T20:51:50.776Z"
+        },
+        {
+            "role": "assistant",
+            "message": "Nice to meet you, Pending.",
+            "time": "2026-06-30T20:51:50.781Z"
+        },
+        {
+            "role": "user",
+            "message": "what is my name",
+            "time": "2026-06-30T20:51:59.667Z"
+        },
+        {
+            "role": "assistant",
+            "message": "Your name is Pending.",
+            "time": "2026-06-30T20:51:59.672Z"
+        },
+        {
+            "role": "user",
+            "message": "hello",
+            "time": "2026-06-30T21:46:18.442Z"
+        },
+        {
+            "role": "assistant",
+            "message": "Hello! I'm Pendium AI.",
+            "time": "2026-06-30T21:46:18.482Z"
+        },
+        {
+            "role": "user",
+            "message": "2 + 5",
+            "time": "2026-06-30T21:46:26.258Z"
+        },
+        {
+            "role": "assistant",
+            "message": "Math Agent is still under development.",
+            "time": "2026-06-30T21:46:26.259Z"
+        }
+    ],
+    "lastMessage": "2 + 5",
+    "lastSeen": "6/30/2026, 10:46:26 PM",
+    "name": "Pending"
+}
