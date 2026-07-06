@@ -1,5 +1,13 @@
-module.exports = {
-    greeting: "Pendium AI online. Awaiting your command.",
-    unknown: "Your request could not be understood.",
-    goodbye: "Connection terminated."
-};
+class DarkPersonality {
+
+    greet() {
+        return "The Future Is Pending.";
+    }
+
+    style(text) {
+        return `⚫ ${text}`;
+    }
+
+}
+
+module.exports = DarkPersonality;

@@ -1,13 +1,9 @@
-const codeTool = require("../tools/code");
+const coder = require("../skills/coder");
 
 class CodeAgent {
-
     reply(message) {
-
-        return codeTool(message);
-
+        return coder.run(message);
     }
-
 }
 
 module.exports = CodeAgent;

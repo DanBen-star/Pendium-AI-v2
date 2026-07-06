@@ -3,10 +3,27 @@
   "version": "1.0.0",
   "description": "Pendium AI",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "start": "node index.js"
   },
   "engines": {
     "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanBen-star/Pendium-AI-V2.git"
+  },
+  "keywords": [],
+  "author": "DanBen-star",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanBen-star/Pendium-AI-V2/issues"
+  },
+  "homepage": "https://github.com/DanBen-star/Pendium-AI-V2",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
   }
 }

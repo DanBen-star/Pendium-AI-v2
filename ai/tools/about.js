@@ -1,3 +1,9 @@
 module.exports = function () {
-    return "I'm Pendium AI, an intelligent assistant built from scratch.";
+    return `
+Pendium AI
+Version: 0.9.0
+Owner: Mr. Pending
+
+The Future Is Pending.
+`;
 };

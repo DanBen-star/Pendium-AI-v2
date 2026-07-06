@@ -1,44 +1,19 @@
 class Router {
 
-    route(message) {
+    route(intent) {
 
-        const text = message.toLowerCase();
+        switch (intent) {
 
-        // Math
-        if (/^[0-9+\-*/(). ]+$/.test(text)) {
-            return "math";
+            case "math":
+                return "math";
+
+            case "code":
+                return "code";
+
+            default:
+                return "chat";
+
         }
-
-        // Coding
-        if (
-            text.includes("code") ||
-            text.includes("website") ||
-            text.includes("html") ||
-            text.includes("css") ||
-            text.includes("javascript") ||
-            text.includes("project") ||
-            text.includes("app")
-        ) {
-            return "coder";
-        }
-
-        // Search
-        if (
-            text.startsWith("search ") ||
-            text.startsWith("find ")
-        ) {
-            return "search";
-        }
-
-        // Weather
-        if (
-            text.includes("weather") ||
-            text.includes("temperature")
-        ) {
-            return "weather";
-        }
-
-        return "chat";
 
     }
 

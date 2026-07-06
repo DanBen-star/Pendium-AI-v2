@@ -1,28 +1,31 @@
-const dark = require("./personalities/dark");
-const friendly = require("./personalities/friendly");
+const Friendly = require("./personalities/friendly");
+const Dark = require("./personalities/dark");
 
 class Personality {
 
     constructor() {
-        this.current = dark; // Default personality
+
+        this.personalities = {
+            friendly: new Friendly(),
+            dark: new Dark()
+        };
+
+        this.current = "friendly";
+
     }
 
     set(name) {
 
-        switch (name.toLowerCase()) {
-
-            case "friendly":
-                this.current = friendly;
-                break;
-
-            default:
-                this.current = dark;
+        if (this.personalities[name]) {
+            this.current = name;
         }
 
     }
 
     get() {
-        return this.current;
+
+        return this.personalities[this.current];
+
     }
 
 }

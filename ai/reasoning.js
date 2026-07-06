@@ -1,57 +1,57 @@
-const Memory = require("./memory");
-const Parser = require("./parser");
-const AgentManager = require("./agentManager");
-const Router = require("./router");
+const SkillLoader = require("./skillLoader");
 
 class Reasoning {
 
     constructor() {
-
-        this.memory = new Memory();
-        this.parser = new Parser();
-        this.agents = new AgentManager();
-        this.router = new Router();
-
+        this.skillLoader = new SkillLoader();
     }
 
     process(message) {
 
-        const request = this.parser.parse(message);
+        const text = message.toLowerCase();
 
-        switch (request.intent) {
+        const skills = this.skillLoader.skills;
 
-            case "SET_NAME":
+        // Check all registered skills
+        for (const name in skills) {
 
-                this.memory.set("name", request.entities.name);
+            const skill = skills[name];
 
-                return `Nice to meet you, ${request.entities.name}.`;
+            if (!skill.keywords || !Array.isArray(skill.keywords))
+                continue;
 
-            case "GET_NAME":
+            const matched = skill.keywords.some(keyword =>
+                text.includes(keyword.toLowerCase())
+            );
 
-                const name = this.memory.get("name");
-
-                return name
-                    ? `Your name is ${name}.`
-                    : "I don't know your name yet.";
-
+            if (matched) {
+                return skill.run(message);
+            }
         }
 
-        const agent = this.router.route(message);
-
-        switch (agent) {
-
-            case "math":
-                return this.agents.run("MATH", message);
-
-            case "coder":
-                return this.agents.run("CODE", message);
-
-            case "chat":
-            default:
-                return this.agents.run("CHAT", message);
-
+        // Math detection
+        if (/^[0-9+\-*/(). ]+$/.test(text)) {
+            return skills.calculator.run(message);
         }
 
+        // Greetings
+        if (
+            text.includes("hello") ||
+            text.includes("hi") ||
+            text.includes("hey")
+        ) {
+            return "Hello! I'm Pendium AI.";
+        }
+
+        // About
+        if (
+            text.includes("who are you") ||
+            text.includes("about")
+        ) {
+            return "Pendium AI v0.9.0\nThe Future Is Pending.";
+        }
+
+        return "I don't understand that yet.";
     }
 
 }

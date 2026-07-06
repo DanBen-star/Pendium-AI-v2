@@ -1,21 +1,33 @@
 class Context {
 
     constructor() {
-        this.current = null;
+
+        this.history = [];
+
     }
 
-    set(context) {
-        this.current = context;
+    add(user, message) {
+
+        this.history.push({
+            user,
+            message,
+            time: Date.now()
+        });
+
+        if (this.history.length > 100) {
+
+            this.history.shift();
+
+        }
+
     }
 
-    get() {
-        return this.current;
-    }
+    getHistory() {
 
-    clear() {
-        this.current = null;
+        return this.history;
+
     }
 
 }
 
-module.exports = Context;
+module.exports = new Context();

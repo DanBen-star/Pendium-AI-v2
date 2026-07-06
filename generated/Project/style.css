@@ -1,18 +1,7 @@
-
-
 body{
-
-font-family:Arial;
-
-text-align:center;
-
-margin-top:100px;
-
+    background:#111;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+    padding:50px;
 }
-
-button{
-
-padding:12px 25px;
-
-}
-

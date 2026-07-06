@@ -1,11 +1,12 @@
 class MathAgent {
-
     reply(message) {
-
-        return "Math Agent is still under development.";
-
+        try {
+            const answer = Function(`return (${message})`)();
+            return `Answer: ${answer}`;
+        } catch {
+            return "Invalid math expression.";
+        }
     }
-
 }
 
 module.exports = MathAgent;

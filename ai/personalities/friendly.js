@@ -1,5 +1,13 @@
-module.exports = {
-    greeting: "Hey! Nice to see you again.",
-    unknown: "Hmm... I didn't quite get that.",
-    goodbye: "See you soon!"
-};
+class FriendlyPersonality {
+
+    greet() {
+        return "Hello! I'm Pendium AI.";
+    }
+
+    style(text) {
+        return text;
+    }
+
+}
+
+module.exports = FriendlyPersonality;

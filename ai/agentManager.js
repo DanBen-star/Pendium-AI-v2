@@ -1,32 +1,27 @@
 const ChatAgent = require("./agents/chatAgent");
-const CodeAgent = require("./agents/codeAgent");
 const MathAgent = require("./agents/mathAgent");
+const CodeAgent = require("./agents/codeAgent");
 
 class AgentManager {
 
     constructor() {
-
         this.chat = new ChatAgent();
-        this.code = new CodeAgent();
         this.math = new MathAgent();
-
+        this.code = new CodeAgent();
     }
 
-    run(agent, message) {
+    run(type, message) {
 
-        switch (agent) {
+        switch (type) {
 
-            case "CHAT":
-                return this.chat.reply(message);
-
-            case "CODE":
-                return this.code.reply(message);
-
-            case "MATH":
+            case "math":
                 return this.math.reply(message);
 
+            case "code":
+                return this.code.reply(message);
+
             default:
-                return "No suitable agent found.";
+                return this.chat.reply(message);
 
         }
 
