@@ -15,15 +15,33 @@ router.get("/", (req, res) => {
     });
 });
 
-router.post("/chat", (req, res) => {
+router.post("/chat", async (req, res) => {
 
-    const message = req.body.message || "";
+    const message = (req.body.message || "").trim();
 
-    const reply = brain.think(message);
+    if (!message) {
+        return res.status(400).json({
+            error: "Message is required"
+        });
+    }
 
-    res.json({
-        reply
-    });
+    try {
+        const reply = await brain.think(message);
+
+        res.json({
+            success: true,
+            message,
+            reply
+        });
+
+    } catch (err) {
+        console.error(err);
+
+        res.status(500).json({
+            success: false,
+            error: "Internal Server Error"
+        });
+    }
 
 });
 
