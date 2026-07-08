@@ -10,8 +10,14 @@ app.use(express.json());
 
 app.use("/", routes);
 
-const PORT = process.env.PORT || 3000;
+// Run locally only
+if (require.main === module) {
+    const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, "0.0.0.0", () => {
-    console.log(`🚀 Pendium API running on port ${PORT}`);
-});
+    app.listen(PORT, "0.0.0.0", () => {
+        console.log(`🚀 Pendium API running on port ${PORT}`);
+    });
+}
+
+// Export for Vercel
+module.exports = app;
